@@ -1,0 +1,84 @@
+create database studentDBT;
+1. 
+use studentDBT;
+create table STUD
+(
+STUD_ID	INT(4),
+STUD_NAME VARCHAR (30) , 
+COURSE_NAME	VARCHAR(30), 	
+DOB	DATE,
+AMOUNT INT(5),
+SSC_PER	FLOAT(7,2)
+);
+
+---------------------------------------------------------------------------
+
+2. 
+insert into stud values(1111,'ABHISHEK', 'PG-DAC','1995-12-17'	,56000,	93.52 ),
+(1112,'SHRUSHTI','PG-DAC','1994-02-20',56000,88.50),
+(1113,'MRUDULA DEO','PG-DBDA','1993-02-22' ,80000, 95.40),
+(1114,'DEEPIKA'	,'PG-DMC','1994-10-02',65000,85.60),
+(1115,'NEHA','PG-DMC','1991-04-02',65000 ,89.50),
+(1116,'RUTVIK','PG-DVLSI','1995-03-04',75000,82.55),
+(1117,'MADHURI','PG-DBDA','1996-01-11',80000,88.00),
+(1118,'POOJA','PG-DAC','1994-12-27',56000,65.25),
+(1119,'PUNIT','PG-DAC','1995-04-04',56000,76.58),
+(1120,'PUSHKAR','PG-DVLSI','1996-05-14',75000,53.95);
+
+------------------------------------------------------------------------------------------
+3.
+create table STUD1
+(
+STUD_ID	INT(4),
+STUD_NAME VARCHAR (30) , 
+COURSE_NAME	VARCHAR(30), 	
+DOB	DATE,
+fees INT(5),
+SSC_PER	FLOAT(7,2)
+) as select *from stud;
+------------------------------------------------------------------------------------------
+
+4.
+
+select course_name,avg(ssc_per) from stud group by course_name;
+
+---------------------------------------------------------------------------------------------
+5.
+
+select course_Name, avg(ssc_per) from stud group by course_name;
+
+--------------------------------------------------------------------------------------------
+
+6.
+select course_name,count(stud_id) from stud group by course_name;
+
+------------------------------------------------------------------------------------------
+
+7. 
+
+select stud_name from stud where DOB like '%-04';
+
+-------------------------------------------------------------------------------------------
+
+8.
+
+select stud_name, ssc_per from stud order by ssc_per desc;
+
+-------------------------------------------------------------------------------------------
+
+9.
+
+delimiter //
+create procedure ABC(course_name char (30))
+begin
+declare x int(10);
+declare y int (10);
+select AMount, ssc_per into x,y from stud where x>50000 and y<80 order by y ;
+end;//
+delimiter ;
+
+call ABC('PG-DAC');
+
+-------------------------------------------------------------------------------------------
+
+
