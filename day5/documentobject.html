@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       #pid
+       {
+           display: flex;
+           
+       }
+       #like
+       {
+        background: black;
+           color: white;
+           margin-top :10px;
+       }
+
+       #comment
+       {
+        background: black;
+           color: white;
+           margin-top: 10px;
+       }
+       .commnewway
+       {
+        display: flex;
+         justify-content: space-between;
+          margin-top: 10px;
+           background: red; 
+          border-radius: 5px;  
+          visibility: hidden;
+       }
+
+    </style>
+    <script src="documentobject.js"></script>
+</head>
+<body>
+    
+    <input type="text" name="commentb" id="idd" placeholder="write comment">
+    <div id="pid">
+     <button id="like" style="margin-right: 10px;" onclick="userlike()">like</button>
+     <button id="comment" onclick="usercomment()">
+        comment</button>
+    </div>
+    
+    <div id="commentbox">
+        <div id="commnewway" class="commnewway" >
+            <div>simple comment</div>
+            <button onclick="deletecontent(this)">delete</button>
+        </div>
+    </div>
+</body>
+</html>
